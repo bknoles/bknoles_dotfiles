@@ -26,7 +26,9 @@ set nocompatible
     Bundle "garbas/vim-snipmate"
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/syntastic'
-    "Bundle 'https://github.com/tpope/vim-fugitive' "So awesome, it should be illegal 
+    Bundle 'spf13/PIV'
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'tpope/vim-fugitive'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
@@ -52,9 +54,9 @@ filetype plugin indent on
 syntax on
 
 "tabstuff
-set tabstop=3
-set shiftwidth=3
-set softtabstop=3
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 "NERDTree
@@ -75,7 +77,29 @@ nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
+
+" Easier moving in tabs and windows
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
+
+""" Code folding options
+nmap <leader>f0 :set foldlevel=0<CR>
+nmap <leader>f1 :set foldlevel=1<CR>
+nmap <leader>f2 :set foldlevel=2<CR>
+nmap <leader>f3 :set foldlevel=3<CR>
+nmap <leader>f4 :set foldlevel=4<CR>
+nmap <leader>f5 :set foldlevel=5<CR>
+nmap <leader>f6 :set foldlevel=6<CR>
+nmap <leader>f7 :set foldlevel=7<CR>
+nmap <leader>f8 :set foldlevel=8<CR>
+nmap <leader>f9 :set foldlevel=9<CR>
+
 set scrolloff=999
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
 
 " Wrap visual selection in an HTML tag.
 vmap <Leader>w <Esc>:call VisualHTMLTagWrap()<CR>
@@ -100,16 +124,22 @@ let g:colorizer_auto_filetype='css,html'
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <leader>sv :so $MYVIMRC<CR>
 
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
+set showmatch                   " show matching brackets/parenthesis
 
 "Turn off search highlighting with leader-/
 nmap <silent> ,/ :nohlsearch<CR>
 
+set virtualedit=onemore         " allow for cursor beyond last character
+set history=1000                " Store a ton of history (default is 20)
+set spell                       " spell checking on
+set hidden                      " allow buffer switching without saving
 
-
+" Run php beautifier on Ctrl-B
+au BufEnter,BufNew *.php map <C-b> :% ! php_beautifier --filters "PEAR() DocBlock()"<CR>
