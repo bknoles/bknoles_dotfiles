@@ -1,3 +1,4 @@
+set nocompatible
 " Setting up Vundle - the vim plugin bundler
     let iCanHazVundle=1
     let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -13,7 +14,18 @@
     Bundle 'gmarik/vundle'
     "Add your bundles here
     "Bundle 'Syntastic' "uber awesome syntax and errors highlighter
-    Bundle 'altercation/vim-colors-solarized' 
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'jelera/vim-javascript-syntax'
+    Bundle 'Raimondi/delimitMate'
+    Bundle 'godlygeek/csapprox'
+    Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim' 
+    Bundle 'chrisbra/color_highlight'
+    Bundle "MarcWeber/vim-addon-mw-utils"
+    Bundle "tomtom/tlib_vim"
+    Bundle "honza/snipmate-snippets"
+    Bundle "garbas/vim-snipmate"
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'scrooloose/syntastic'
     "Bundle 'https://github.com/tpope/vim-fugitive' "So awesome, it should be illegal 
     "...All your other bundles...
     if iCanHazVundle == 0
@@ -24,9 +36,14 @@
 " Setting up Vundle - the vim plugin bundler end
 
 autocmd VimEnter * NERDTree
-colorscheme Mustang
+
+" View options
+set background=dark
+" colorscheme solarized
+" colorscheme Mustang
+colorscheme railscasts
 set guifont=Monaco:h12
-set nu!
+set nu
 
 filetype on
 filetype plugin on
@@ -76,3 +93,23 @@ function! VisualHTMLTagWrap()
     normal `<
   endif
 endfunction
+
+"Configuration options for chrisbra/color_highlight
+let g:colorizer_auto_filetype='css,html'
+"let g:colorizer_skip_comments = 1
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+
+"Turn off search highlighting with leader-/
+nmap <silent> ,/ :nohlsearch<CR>
+
+
+
