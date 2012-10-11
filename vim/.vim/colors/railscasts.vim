@@ -48,7 +48,7 @@ highlight Normal                    guifg=#E6E1DC guibg=#111111
 highlight Cursor                    guifg=#000000 ctermfg=0 guibg=#FFFFFF ctermbg=15	
 highlight CursorLine                guibg=#000000 ctermbg=233 cterm=NONE
 
-highlight Comment                   guifg=#BC9458 ctermfg=180 gui=italic
+highlight Comment                   guifg=#606060 ctermfg=180 gui=italic
 highlight Constant                  guifg=#6D9CBE ctermfg=73
 highlight Define                    guifg=#CC7833 ctermfg=173
 highlight Error                     guifg=#FFC66D ctermfg=221 guibg=#990000 ctermbg=88
@@ -94,3 +94,7 @@ highlight SpellBad                  guifg=#D70000 ctermfg=160 ctermbg=NONE cterm
 highlight SpellRare                 guifg=#D75F87 ctermfg=168 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight SpellCap                  guifg=#D0D0FF ctermfg=189 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight MatchParen                guifg=#FFFFFF ctermfg=15 guibg=#005f5f ctermbg=23
+highlight Pmenu                     guibg=#606060
+highlight PmenuSel                 guifg=#dddd00 guibg=#1f82cd
+highlight PmenuSbar                guibg=#d6d6d6
+highlight PmenuThumb               guifg=#3cac3c

@@ -17,7 +17,7 @@ set nocompatible
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'Raimondi/delimitMate'
-    Bundle 'godlygeek/csapprox'
+    "Bundle 'godlygeek/csapprox'
     Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim' 
     Bundle 'chrisbra/color_highlight'
     Bundle "MarcWeber/vim-addon-mw-utils"
@@ -26,9 +26,10 @@ set nocompatible
     Bundle "garbas/vim-snipmate"
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/syntastic'
-    Bundle 'spf13/PIV'
+    "Bundle 'spf13/PIV'
     Bundle 'Shougo/neocomplcache'
     Bundle 'tpope/vim-fugitive'
+    Bundle 'manic/vim-php-indent'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
@@ -134,7 +135,7 @@ set incsearch     " show search matches as you type
 set showmatch                   " show matching brackets/parenthesis
 
 "Turn off search highlighting with leader-/
-nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> <leader>/ :nohlsearch<CR>
 
 set virtualedit=onemore         " allow for cursor beyond last character
 set history=1000                " Store a ton of history (default is 20)
@@ -143,3 +144,7 @@ set hidden                      " allow buffer switching without saving
 
 " Run php beautifier on Ctrl-B
 au BufEnter,BufNew *.php map <C-b> :% ! php_beautifier --filters "PEAR() DocBlock()"<CR>
+"autocmd BufWrite *.php % !php_beautifier --filters "phpBB() DocBlock()"
+
+map <C-H> <ESC>:!phpm <C-R>=expand("<cword>")<CR><CR>
+

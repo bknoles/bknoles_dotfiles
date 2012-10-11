@@ -20,6 +20,7 @@
 'NERDTreeWinPos'	NERD_tree.txt	/*'NERDTreeWinPos'*
 'NERDTreeWinSize'	NERD_tree.txt	/*'NERDTreeWinSize'*
 'loaded_nerd_tree'	NERD_tree.txt	/*'loaded_nerd_tree'*
+/	apache-request-headers.txt	/*\/*
 :CommandT	command-t.txt	/*:CommandT*
 :CommandTBuffer	command-t.txt	/*:CommandTBuffer*
 :CommandTFlush	command-t.txt	/*:CommandTFlush*
@@ -89,6 +90,7 @@ NERDTreeOptionSummary	NERD_tree.txt	/*NERDTreeOptionSummary*
 NERDTreeOptions	NERD_tree.txt	/*NERDTreeOptions*
 NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
+NOT	strtr.txt	/*NOT*
 command-t	command-t.txt	/*command-t*
 command-t-authors	command-t.txt	/*command-t-authors*
 command-t-commands	command-t.txt	/*command-t-commands*
@@ -107,6 +109,7 @@ command-t-usage	command-t.txt	/*command-t-usage*
 command-t-website	command-t.txt	/*command-t-website*
 command-t-wildignore	command-t.txt	/*command-t-wildignore*
 command-t.txt	command-t.txt	/*command-t.txt*
+estimated	ifx-getsqlca.txt	/*estimated*
 g:CommandTAcceptSelectionMap	command-t.txt	/*g:CommandTAcceptSelectionMap*
 g:CommandTAcceptSelectionSplitMap	command-t.txt	/*g:CommandTAcceptSelectionSplitMap*
 g:CommandTAcceptSelectionTabMap	command-t.txt	/*g:CommandTAcceptSelectionTabMap*
