@@ -1,4 +1,4 @@
-export PATH="/Applications/MAMP/bin/php/php5.3.6/bin:/usr/local/bin:/Users/brianknoles/Android/tools:/Users/brianknoles/Android/platform-tools:/usr/local/share/python:/usr/local/sbin:~/bin:~/.dotfiles/scripts:~/.dotfiles/scripts/phpm:$PATH"
+export PATH="/Applications/MAMP/bin/php/php5.3.6/bin:/usr/local/bin:/Users/brianknoles/Android/tools:/Users/brianknoles/Android/platform-tools:/usr/local/share/python:/usr/local/sbin:~/bin:~/.dotfiles/scripts:~/.dotfiles/scripts/phpm:~/Flex_SDK/flex_sdk_4.6/bin:$PATH"
 export PYTHONPATH="/Users/brianknoles/PythonProgs/redweb/:/Users/brianknoles/PythonProgs/redweb/redis-py:$PYTHONPATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -12,3 +12,5 @@ export PYTHONPATH="/Users/brianknoles/PythonProgs/redweb/:/Users/brianknoles/Pyt
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+# Increase history length
+HISTFILESIZE=2500

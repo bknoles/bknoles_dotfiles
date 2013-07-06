@@ -1,0 +1,7 @@
+[submodule "vim/.vim/bundle/color_highlight"]                                               
+  path = vim/.vim/bundle/color_highlight
+  ignore = dirty
+
+[submodule "vim/.vim/bundle/vundle"]                                               
+  path = vim/.vim/bundle/vundle
+  ignore = dirty

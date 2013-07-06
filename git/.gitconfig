@@ -3,3 +3,11 @@
 	email = bknoles@gmail.com
 [color]
 	ui = true
+[core]
+	editor = mvim
+[alias]
+	mylog = log --pretty=format:'%h %s [%an]' --graph
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	st = status
+[heroku]
+	account = personal
