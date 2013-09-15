@@ -237,3 +237,6 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 " Fuzzy search open buffers with leader-y
 nmap <leader>y :CommandTBuffer<CR>
+
+" Set .md files as markdown syntax
+au BufRead,BufNewFile *.md set filetype=markdown
