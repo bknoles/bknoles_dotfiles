@@ -35,6 +35,7 @@ set nocompatible
     "Bundle 'rickharris/vim-railscasts'
     Bundle '29decibel/codeschool-vim-theme'
     Bundle 'Lokaltog/vim-distinguished'
+    Bundle 'mileszs/ack.vim'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
