@@ -36,6 +36,10 @@ set nocompatible
     Bundle '29decibel/codeschool-vim-theme'
     Bundle 'Lokaltog/vim-distinguished'
     Bundle 'mileszs/ack.vim'
+    Bundle 'tpope/vim-vividchalk'
+    Bundle 'vim-scripts/Wombat'
+    Bundle 'morhetz/gruvbox'
+    Bundle 'tomasr/molokai'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
@@ -129,7 +133,7 @@ function! VisualHTMLTagWrap()
 endfunction
 
 "Configuration options for chrisbra/color_highlight
-let g:colorizer_auto_filetype='css,html,erb'
+let g:colorizer_auto_filetype='css,html,erb,scss'
 "let g:colorizer_skip_comments = 1
 
 " Quickly edit/reload the vimrc file
@@ -241,3 +245,51 @@ nmap <leader>y :CommandTBuffer<CR>
 
 " Set .md files as markdown syntax
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" Setup up color schemes to cycle through
+nmap <Leader>1 :call SwitchColorSchemes()<CR>
+function! SwitchColorSchemes()
+  let scheme_number = input("Enter scheme number: ")
+  if len(scheme_number) > 0 
+    if scheme_number == 1
+      exe "colo railscasts"
+    elseif scheme_number == 2
+      exe "colo solarized"
+    elseif scheme_number == 3
+      exe "colo Mustang"
+    elseif scheme_number == 4
+      exe "colo desert"
+    elseif scheme_number == 5
+      exe "colo candy"
+    elseif scheme_number == 6
+      exe "colo Wombat"
+    elseif scheme_number == 7
+      exe "colo gruvbox"
+    elseif scheme_number == 8
+      exe "colo molokai"
+    elseif scheme_number == 9
+      exe "colo codeschool"
+    endif
+  endif
+  exe "ColorHighlight"
+endfunction
+
+nmap <Leader>2 :call SetColorSchemeToFileTypeDefault()<CR>
+function! SetColorSchemeToFileTypeDefault()
+  let the_filetype = &filetype
+  if the_filetype == "scss"
+    exe "colo candy"
+  elseif the_filetype == "ruby"
+    exe "colo railscasts"
+  elseif the_filetype == "eruby"
+    exe "colo railscasts"
+  elseif the_filetype == "php"
+    exe "colo solarized"
+  else
+    exe "colo solarized"
+  endif
+  exe "ColorHighlight"
+endfunction
+
+nmap <Leader>3 :ColorHighlight<CR> 
+au   BufEnter * execute ":call SetColorSchemeToFileTypeDefault()"
