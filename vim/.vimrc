@@ -40,6 +40,10 @@ set nocompatible
     Bundle 'vim-scripts/Wombat'
     Bundle 'morhetz/gruvbox'
     Bundle 'tomasr/molokai'
+    Bundle 'godlygeek/tabular'
+    Bundle 'jeyb/vim-jst'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'AndrewRadev/vim-eco'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
@@ -291,5 +295,10 @@ function! SetColorSchemeToFileTypeDefault()
   exe "ColorHighlight"
 endfunction
 
-nmap <Leader>3 :ColorHighlight<CR> 
-au   BufEnter * execute ":call SetColorSchemeToFileTypeDefault()"
+nmap <Leader>3 :ColorToggle<CR>
+" Automatically set the colorscheme to the filetype default. Removed for now
+" because there was noticeable delay when switching windows
+"au   BufEnter * execute ":call SetColorSchemeToFileTypeDefault()"
+
+" Highlight when lines become longer than 80 characters
+"match ErrorMsg '\%>80v.\+'
