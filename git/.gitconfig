@@ -5,6 +5,7 @@
 	ui = true
 [core]
 	editor = mvim
+	excludesfile = ~/.gitignore_global
 [alias]
 	mylog = log --pretty=format:'%h %s [%an]' --graph
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
