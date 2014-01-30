@@ -45,6 +45,7 @@ set nocompatible
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'AndrewRadev/vim-eco'
     Bundle 'kien/ctrlp.vim'
+    Bundle 'vim-scripts/applescript.vim'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
@@ -312,3 +313,5 @@ nmap <Leader>3 :ColorToggle<CR>
 
 " Highlight when lines become longer than 80 characters
 "match ErrorMsg '\%>80v.\+'
+
+au! BufNewFile,BufRead *.applescript setf applescript
