@@ -44,6 +44,7 @@ set nocompatible
     Bundle 'jeyb/vim-jst'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'AndrewRadev/vim-eco'
+    Bundle 'kien/ctrlp.vim'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
