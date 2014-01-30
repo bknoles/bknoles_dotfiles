@@ -1,0 +1,34 @@
+#!/bin/bash
+grep 'rails' 'Gemfile' >/dev/null 2>&1
+if [ $? -eq 0 ]
+then
+    if [ ! -f Procfile ] 
+    then
+        server_command="rails s"
+    else
+        server_command="foreman start"
+    fi
+    while getopts ":p:" opt; do
+        case $opt in
+            p)
+                port="$OPTARG" >&2
+                echo "-p was triggered, Parameter: $OPTARG" >&2
+                ;;
+            \?)
+                echo "Invalid option: -$OPTARG" >&2
+                exit 1
+                ;;
+            :)
+                echo "Option -$OPTARG requires an argument." >&2
+                exit 1
+                ;;
+        esac
+    done
+    if [[ -z "$1" ]]
+    then
+        port="3000"
+    fi
+    osascript "$(dirname $0)/open_rails.applescript" "$server_command" "$port"
+else
+    echo "This folder is not a rails project, che."
+fi
