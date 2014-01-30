@@ -245,8 +245,17 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
+" CtrlP options
+" Set ctrlp to use the current file directory OR current working directory to
+" start search 
+let g:ctrlp_working_path_mode = 'a'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 " Fuzzy search open buffers with leader-y
-nmap <leader>y :CommandTBuffer<CR>
+nmap <leader>y :CtrlPBuffer<CR>
+" Fuzzy search files with leader-y
+" (simulate Command-t behavior with ctrlp)
+nmap <leader>t :CtrlP<CR>
 
 " Set .md files as markdown syntax
 au BufRead,BufNewFile *.md set filetype=markdown
