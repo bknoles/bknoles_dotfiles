@@ -7,19 +7,22 @@ on run argv
             set number of columns to 150
             set number of rows to 40
             tell the current session
-                write text "pwd | pbcopy"
+                do shell script "pwd | pbcopy"
                 write text server_command
                 tell i term application "System Events" to keystroke "d" using command down
 
+                delay 1
                 write text "cd `pbpaste`"
                 write text "tail -f log/development.log"                    
             end tell
             launch session "Command Line"
             tell the current session
+                delay 1
                 write text "cd `pbpaste`"
                 write text "git st"
                 tell i term application "System Events" to keystroke "d" using command down
 
+                delay 1
                 write text "cd `pbpaste`"
                 write text "rails c"
             end tell
