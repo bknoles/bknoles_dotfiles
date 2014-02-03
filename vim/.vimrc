@@ -55,7 +55,16 @@ set nocompatible
 " Setting up Vundle - the vim plugin bundler end
 
 set wildignore+=trunk/wp-content/themes/eddiemachado-bones-responsive-33b0dc3/learning-tree
-autocmd VimEnter * NERDTree
+autocmd VimEnter * call OpenNerdtreeOnly()
+function OpenNerdtreeOnly()
+    " if we aren't opening a file directly, open nerdtree and close the
+    " default window
+    if 0 == argc()
+        NERDTree
+        wincmd p
+        wincmd c
+    end
+endfunction
 
 " View options
 set background=dark
