@@ -63,7 +63,7 @@ set nocompatible
 
 set wildignore+=trunk/wp-content/themes/eddiemachado-bones-responsive-33b0dc3/learning-tree
 autocmd VimEnter * call OpenNerdtreeOnly()
-function OpenNerdtreeOnly()
+function! OpenNerdtreeOnly()
     " if we aren't opening a file directly, open nerdtree and close the
     " default window
     if 0 == argc()
