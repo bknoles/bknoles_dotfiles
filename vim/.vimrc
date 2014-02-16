@@ -18,8 +18,9 @@ set nocompatible
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'Raimondi/delimitMate'
     "Bundle 'godlygeek/csapprox'
-    Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim' 
-    Bundle 'chrisbra/color_highlight'
+    "Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim' 
+    "Bundle 'chrisbra/Colorizer'
+    Bundle 'lilydjwg/colorizer'
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle "tomtom/tlib_vim"
     Bundle "honza/vim-snippets"
