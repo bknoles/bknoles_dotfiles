@@ -165,7 +165,7 @@ function! VisualHTMLTagWrap()
 endfunction
 
 "Configuration options for chrisbra/color_highlight
-let g:colorizer_auto_filetype='css,html,erb,scss'
+"let g:colorizer_auto_filetype='css,html,erb,scss'
 "let g:colorizer_skip_comments = 1
 
 " Quickly edit/reload the vimrc file
