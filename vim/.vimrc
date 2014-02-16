@@ -86,6 +86,16 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+au FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType eruby.html setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType eco.html setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType eruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType eco setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType coffee setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType scss setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+
 "NERDTree
 let NERDTreeChDirMode=2
 
