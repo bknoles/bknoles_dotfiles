@@ -47,6 +47,12 @@ set nocompatible
     Bundle 'AndrewRadev/vim-eco'
     Bundle 'kien/ctrlp.vim'
     Bundle 'vim-scripts/applescript.vim'
+    Bundle 'vim-ruby/vim-ruby'
+    Bundle 'othree/html5.vim'
+    Bundle 'tpope/vim-haml'
+    Bundle 'hail2u/vim-css3-syntax'
+    " Ri isn't playing nice with rvm. Disable this for now
+    "Bundle 'danchoi/ri.vim'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
