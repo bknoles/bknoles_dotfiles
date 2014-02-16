@@ -237,6 +237,7 @@ let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <expr><CR>  pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+imap <expr> <CR> pumvisible() ? neocomplcache#smart_close_popup() : '<Plug>delimitMateCR'
 " <TAB>: completion.
 "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
