@@ -28,6 +28,14 @@ then
     then
         port="3000"
     fi
+    if ps ax | grep -v grep | grep 'postgres' > /dev/null
+    then
+        echo "looks good"        
+    else
+        echo "no server running amigo!"
+        # TODO: abstract this and use an environment variable to set up the path
+        pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+    fi
     osascript "$(dirname $0)/open_rails.applescript" "$server_command" "$port"
 else
     echo "This folder is not a rails project, che."
