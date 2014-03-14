@@ -210,6 +210,10 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
+" Fix for vim-rails
+" Ref: https://git.cloudhost.io/ka/dotfiles/commit/8eaf689586d91ac9d6f23babeb650a01694e4289
+let g:neocomplcache_force_overwrite_completefunc=1
+
 " Define dictionary.
 "let g:neocomplcache_dictionary_filetype_lists = {
     "\ 'default' : '',
