@@ -51,6 +51,7 @@ set nocompatible
     Bundle 'othree/html5.vim'
     Bundle 'tpope/vim-haml'
     Bundle 'hail2u/vim-css3-syntax'
+    Bundle 'tpope/vim-surround'
     " Ri isn't playing nice with rvm. Disable this for now
     "Bundle 'danchoi/ri.vim'
     "...All your other bundles...
