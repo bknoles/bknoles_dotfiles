@@ -1,0 +1,1 @@
+exiftool '-Directory<Model' -r ~/Dropbox/Camera\ Uploads
