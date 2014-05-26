@@ -1,6 +1,7 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
+# Show git branch in terminal output
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -16,3 +17,6 @@ done
 unset file
 # Increase history length
 HISTFILESIZE=2500
+
+# Migrate dev and test dbs in one command on Rails projects
+alias rake_db_migrate='rake db:migrate && rake db:test:prepare'
