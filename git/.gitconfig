@@ -7,8 +7,10 @@
 	editor = mvim
 	excludesfile = ~/.gitignore_global
 [alias]
-	mylog = log --pretty=format:'%h %s [%an]' --graph
+    mylog = log --pretty=format:'%Cblue%h %C(yellow)%ad%Creset %s [%Cblue%an%Creset]' --graph --date=short
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	st = status
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    co = checkout
 [heroku]
 	account = personal
