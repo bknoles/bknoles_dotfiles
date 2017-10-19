@@ -81,9 +81,9 @@ endfunction
 
 " View options
 set background=dark
-" colorscheme solarized
-colorscheme Mustang
-colorscheme railscasts
+colorscheme solarized
+"colorscheme Mustang
+"colorscheme railscasts
 set guifont=Monaco:h12
 set nu
 
