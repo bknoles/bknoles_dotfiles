@@ -110,6 +110,17 @@ au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 "NERDTree
 let NERDTreeChDirMode=2
+" Open NERDTree with Atom command
+nmap <D-\> :call ToggleMyTree()<CR>
+nmap <Leader>f :call ToggleMyTree()<CR>
+function! ToggleMyTree()
+  if winnr("$") == 1
+    exe "NERDTreeFind"
+  else
+    exe "NERDTreeToggle"
+  endif
+endfunction
+
 
 "Turn 'crosshairs' on
 set cursorcolumn
