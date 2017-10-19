@@ -13,13 +13,9 @@ set nocompatible
     call vundle#rc()
     Bundle 'gmarik/vundle'
     "Add your bundles here
-    "Bundle 'Syntastic' "uber awesome syntax and errors highlighter
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'Raimondi/delimitMate'
-    "Bundle 'godlygeek/csapprox'
-    "Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim' 
-    "Bundle 'chrisbra/Colorizer'
     Bundle 'lilydjwg/colorizer'
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle "tomtom/tlib_vim"
@@ -27,13 +23,10 @@ set nocompatible
     Bundle "garbas/vim-snipmate"
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/syntastic'
-    "Bundle 'spf13/PIV'
     Bundle 'Shougo/neocomplcache'
     Bundle 'tpope/vim-fugitive'
     Bundle 'manic/vim-php-indent'
     Bundle 'tpope/vim-rails'
-    "Bundle 'oguzbilgic/sexy-railscasts-theme'
-    "Bundle 'rickharris/vim-railscasts'
     Bundle '29decibel/codeschool-vim-theme'
     Bundle 'Lokaltog/vim-distinguished'
     Bundle 'mileszs/ack.vim'
@@ -57,8 +50,6 @@ set nocompatible
     Bundle 'mustache/vim-mustache-handlebars'
     Bundle 'pangloss/vim-javascript'
     Bundle 'mxw/vim-jsx'
-    " Ri isn't playing nice with rvm. Disable this for now
-    "Bundle 'danchoi/ri.vim'
     "...All your other bundles...
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
