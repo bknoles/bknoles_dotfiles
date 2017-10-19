@@ -13,44 +13,52 @@ set nocompatible
     call vundle#rc()
     Bundle 'gmarik/vundle'
     "Add your bundles here
-    Bundle 'altercation/vim-colors-solarized'
+
+    "Syntax highlighting plugins
     Bundle 'jelera/vim-javascript-syntax'
-    Bundle 'Raimondi/delimitMate'
-    Bundle 'lilydjwg/colorizer'
-    Bundle "MarcWeber/vim-addon-mw-utils"
-    Bundle "tomtom/tlib_vim"
-    Bundle "honza/vim-snippets"
-    Bundle "garbas/vim-snipmate"
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'scrooloose/syntastic'
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'tpope/vim-fugitive'
     Bundle 'manic/vim-php-indent'
     Bundle 'tpope/vim-rails'
-    Bundle '29decibel/codeschool-vim-theme'
-    Bundle 'Lokaltog/vim-distinguished'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'tpope/vim-vividchalk'
-    Bundle 'vim-scripts/Wombat'
-    Bundle 'morhetz/gruvbox'
-    Bundle 'tomasr/molokai'
-    Bundle 'godlygeek/tabular'
-    Bundle 'jeyb/vim-jst'
+    Bundle 'jeyb/vim-jst'    
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'AndrewRadev/vim-eco'
-    Bundle 'kien/ctrlp.vim'
     Bundle 'vim-scripts/applescript.vim'
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'othree/html5.vim'
     Bundle 'tpope/vim-haml'
     Bundle 'hail2u/vim-css3-syntax'
-    Bundle 'tpope/vim-surround'
-    Bundle 'Lokaltog/vim-easymotion'
     Bundle 'ekalinin/Dockerfile.vim'
     Bundle 'mustache/vim-mustache-handlebars'
     Bundle 'pangloss/vim-javascript'
     Bundle 'mxw/vim-jsx'
-    "...All your other bundles...
+
+    "Colorschemes
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle '29decibel/codeschool-vim-theme'
+    Bundle 'Lokaltog/vim-distinguished'    
+    Bundle 'tpope/vim-vividchalk'
+    Bundle 'vim-scripts/Wombat'
+    Bundle 'morhetz/gruvbox'
+    Bundle 'tomasr/molokai'
+
+    "Interface improvements
+    Bundle 'Raimondi/delimitMate'
+    Bundle 'lilydjwg/colorizer'
+    Bundle "honza/vim-snippets"
+    Bundle "garbas/vim-snipmate"
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'scrooloose/syntastic'
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'tpope/vim-fugitive'    
+    Bundle 'mileszs/ack.vim'
+    Bundle 'godlygeek/tabular'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'tpope/vim-surround'
+    Bundle 'Lokaltog/vim-easymotion'
+
+    "Utilites
+    Bundle "MarcWeber/vim-addon-mw-utils"
+    Bundle "tomtom/tlib_vim"
+
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
         echo ""
