@@ -53,6 +53,10 @@ set nocompatible
     Bundle 'hail2u/vim-css3-syntax'
     Bundle 'tpope/vim-surround'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'ekalinin/Dockerfile.vim'
+    Bundle 'mustache/vim-mustache-handlebars'
+    Bundle 'pangloss/vim-javascript'
+    Bundle 'mxw/vim-jsx'
     " Ri isn't playing nice with rvm. Disable this for now
     "Bundle 'danchoi/ri.vim'
     "...All your other bundles...
