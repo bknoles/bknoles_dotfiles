@@ -51,9 +51,9 @@ set nocompatible
     Bundle 'tpope/vim-fugitive'    
     Bundle 'mileszs/ack.vim'
     Bundle 'godlygeek/tabular'
-    Bundle 'kien/ctrlp.vim'
     Bundle 'tpope/vim-surround'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'junegunn/fzf.vim'
 
     "Utilites
     Bundle "MarcWeber/vim-addon-mw-utils"
@@ -282,18 +282,6 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
-" CtrlP options
-" Set ctrlp to use the current file directory OR current working directory to
-" start search 
-let g:ctrlp_working_path_mode = 'a'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
-" Fuzzy search open buffers with leader-y
-nmap <leader>y :CtrlPBuffer<CR>
-" Fuzzy search files with leader-y
-" (simulate Command-t behavior with ctrlp)
-nmap <leader>t :CtrlP<CR>
-
 " Set .md files as markdown syntax
 au BufRead,BufNewFile *.md set filetype=markdown
 
@@ -380,3 +368,8 @@ command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
 " Have delimitmate insert carriage returns
 let delimitMate_expand_cr=1
 let delimitMate_expand_space=1
+
+" fzf mappings
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>p :Buffers<CR>
