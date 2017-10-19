@@ -186,8 +186,6 @@ set showmatch                   " show matching brackets/parenthesis
 
 "Turn off search highlighting with leader-/
 nmap <silent> <leader>/ :nohlsearch<CR>
-" Leader-g searches for the word under the cursor in files in the working directory
-nmap <Leader>g :vimgrep /<C-R><C-W>/gj **<CR>
 
 set virtualedit=onemore         " allow for cursor beyond last character
 set history=1000                " Store a ton of history (default is 20)
@@ -375,3 +373,11 @@ set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>p :Buffers<CR>
+
+" Tell ack.vim to use ag (the Silver Searcher) instead
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" Leader-g searches for the word under the cursor in files in the working directory
+nmap <Leader>g :Ack! "\b<cword>\b" <CR>
+
