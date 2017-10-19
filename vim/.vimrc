@@ -392,3 +392,6 @@ endif
 " Leader-g searches for the word under the cursor in files in the working directory
 nmap <Leader>g :Ack! "\b<cword>\b" <CR>
 
+
+" Close quick fix easily
+nmap <Leader>w :cclose<CR>
