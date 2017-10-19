@@ -352,6 +352,7 @@ nmap <Leader>3 :ColorToggle<CR>
 "match ErrorMsg '\%>80v.\+'
 
 au! BufNewFile,BufRead *.applescript setf applescript
+autocmd BufNewFile,BufRead,BufFilePost *.hamljs set filetype=haml
 
 " Execute 'cmd' while redirecting output.
 " Delete all lines that do not match regex 'filter' (if not empty).
