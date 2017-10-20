@@ -46,7 +46,6 @@ set nocompatible
     Bundle "honza/vim-snippets"
     Bundle "garbas/vim-snipmate"
     Bundle 'scrooloose/nerdcommenter'
-    Bundle 'scrooloose/syntastic'
     Bundle 'Shougo/neocomplcache'
     Bundle 'tpope/vim-fugitive'    
     Bundle 'mileszs/ack.vim'
