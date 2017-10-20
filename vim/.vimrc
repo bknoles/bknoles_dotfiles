@@ -56,6 +56,7 @@ set nocompatible
     Bundle 'w0rp/ale'
     Bundle 'vim-airline/vim-airline'
     Bundle 'tpope/vim-endwise'
+    Bundle 'valloric/youcompleteme'
 
     "Utilites
     Bundle "MarcWeber/vim-addon-mw-utils"
