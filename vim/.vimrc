@@ -54,6 +54,7 @@ set nocompatible
     Bundle 'tpope/vim-surround'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'junegunn/fzf.vim'
+    Bundle 'airblade/vim-gitgutter'
 
     "Utilites
     Bundle "MarcWeber/vim-addon-mw-utils"
