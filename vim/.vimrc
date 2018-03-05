@@ -87,7 +87,7 @@ set background=dark
 colorscheme solarized
 "colorscheme Mustang
 "colorscheme railscasts
-set guifont=Monaco:h12
+set guifont=Iosevka:h15,Monaco:h13
 set nu
 
 filetype on
