@@ -317,3 +317,15 @@ nmap <Leader>g :Ack! "\b<cword>\b" <CR>
 
 " Close quick fix easily
 nmap <Leader>w :cclose<CR>
+
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+"Remove all trailing whitespace by pressing F4
+nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
