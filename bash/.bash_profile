@@ -20,3 +20,10 @@ HISTFILESIZE=2500
 
 # Migrate dev and test dbs in one command on Rails projects
 alias rake_db_migrate='rake db:migrate && rake db:test:prepare'
+
+eval "$(docker-machine env default-docker)"
+
+gtb() {
+    local tail_amount="${2:-1}"
+    git checkout $(git branch | grep "$1" | tail -$tail_amount | head -1)
+}
