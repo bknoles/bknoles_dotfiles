@@ -41,7 +41,6 @@ set nocompatible
     Bundle 'tomasr/molokai'
 
     "Interface improvements
-    Bundle 'Raimondi/delimitMate'
     Bundle 'lilydjwg/colorizer'
     Bundle "honza/vim-snippets"
     Bundle "garbas/vim-snipmate"
@@ -55,8 +54,10 @@ set nocompatible
     Bundle 'airblade/vim-gitgutter'
     Bundle 'w0rp/ale'
     Bundle 'vim-airline/vim-airline'
+    Bundle 'raimondi/delimitmate'
     Bundle 'tpope/vim-endwise'
     Bundle 'valloric/youcompleteme'
+    Bundle 'valloric/listtoggle'
 
     "Utilites
     Bundle "MarcWeber/vim-addon-mw-utils"
