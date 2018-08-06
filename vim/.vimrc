@@ -121,6 +121,7 @@ au FileType javascript.jsx setlocal shiftwidth=2 softtabstop=2 tabstop=2
 let NERDTreeChDirMode=2
 " Open NERDTree with Atom command
 nmap <D-\> :call ToggleMyTree()<CR>
+nmap <C-\> :call ToggleMyTree()<CR>
 nmap <Leader>f :call ToggleMyTree()<CR>
 function! ToggleMyTree()
   if winnr("$") == 1
@@ -176,7 +177,7 @@ map <Leader>= <C-w>=
 vmap <Leader>w <Esc>:call VisualHTMLTagWrap()<CR>
 function! VisualHTMLTagWrap()
   let tag = input("Tag to wrap block: ")
-  if len(tag) > 0 
+  if len(tag) > 0
     normal `>
     if &selection == 'exclusive'
       exe "normal i</".tag.">"
@@ -225,7 +226,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 nmap <Leader>1 :call SwitchColorSchemes()<CR>
 function! SwitchColorSchemes()
   let scheme_number = input("Enter scheme number: ")
-  if len(scheme_number) > 0 
+  if len(scheme_number) > 0
     if scheme_number == 1
       exe "colo railscasts"
     elseif scheme_number == 2
@@ -302,15 +303,15 @@ endfunction
 command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
 
 " Have delimitmate insert carriage returns
-let delimitMate_expand_cr=1
+"let delimitMate_expand_cr=1
 let delimitMate_expand_space=1
 
 " fzf mappings
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
 nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>p :Buffers<CR>
+nmap <Leader>p :Files<CR>
+nmap <D-p>:Files<CR>
 
 " Tell ack.vim to use ag (the Silver Searcher) instead
 if executable('ag')
