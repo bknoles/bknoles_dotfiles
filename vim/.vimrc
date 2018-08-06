@@ -18,7 +18,7 @@ set nocompatible
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'manic/vim-php-indent'
     Bundle 'tpope/vim-rails'
-    Bundle 'jeyb/vim-jst'    
+    Bundle 'jeyb/vim-jst'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'AndrewRadev/vim-eco'
     Bundle 'vim-scripts/applescript.vim'
@@ -34,7 +34,7 @@ set nocompatible
     "Colorschemes
     Bundle 'altercation/vim-colors-solarized'
     Bundle '29decibel/codeschool-vim-theme'
-    Bundle 'Lokaltog/vim-distinguished'    
+    Bundle 'Lokaltog/vim-distinguished'
     Bundle 'tpope/vim-vividchalk'
     Bundle 'vim-scripts/Wombat'
     Bundle 'morhetz/gruvbox'
@@ -45,23 +45,26 @@ set nocompatible
     Bundle "honza/vim-snippets"
     Bundle "garbas/vim-snipmate"
     Bundle 'scrooloose/nerdcommenter'
-    Bundle 'tpope/vim-fugitive'    
+    Bundle 'tpope/vim-fugitive'
     Bundle 'mileszs/ack.vim'
     Bundle 'godlygeek/tabular'
     Bundle 'tpope/vim-surround'
-    Bundle 'Lokaltog/vim-easymotion'
+    "Bundle 'Lokaltog/vim-easymotion'
     Bundle 'junegunn/fzf.vim'
     Bundle 'airblade/vim-gitgutter'
     Bundle 'w0rp/ale'
     Bundle 'vim-airline/vim-airline'
     Bundle 'raimondi/delimitmate'
+    Bundle 'alvan/vim-closetag'
     Bundle 'tpope/vim-endwise'
     Bundle 'valloric/youcompleteme'
     Bundle 'valloric/listtoggle'
+    Bundle 'scrooloose/nerdtree'
 
     "Utilites
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle "tomtom/tlib_vim"
+    Bundle 'skywind3000/asyncrun.vim'
 
     if iCanHazVundle == 0
         echo "Installing Bundles, please ignore key map error messages"
