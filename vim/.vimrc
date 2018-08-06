@@ -57,9 +57,17 @@ set nocompatible
     Bundle 'raimondi/delimitmate'
     Bundle 'alvan/vim-closetag'
     Bundle 'tpope/vim-endwise'
-    Bundle 'valloric/youcompleteme'
+    "Bundle 'valloric/youcompleteme'
     Bundle 'valloric/listtoggle'
     Bundle 'scrooloose/nerdtree'
+
+    if has('nvim')
+      Bundle 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+      Bundle 'Shougo/deoplete.nvim'
+      Bundle 'roxma/nvim-yarp'
+      Bundle 'roxma/vim-hug-neovim-rpc'
+    endif
 
     "Utilites
     Bundle "MarcWeber/vim-addon-mw-utils"
@@ -354,9 +362,25 @@ let g:ale_sign_warning = '.'
 let g:jsx_ext_required = 0
 
 function! EsLintFix()
-  if confirm('Autofix code via ESLint?', "&Yes\n&No", 1)==1
-    execute "AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %"
+  if filereadable("./node_modules/.bin/eslint")
+    if confirm('Autofix code via ESLint?', "&Yes\n&No", 1)==1
+      execute "AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %"
+    endif
   endif
 endfunction
 
-autocmd BufWritePost *.js,*.jsx call EsLintFix()
+augroup eslinter
+  autocmd!
+  autocmd BufWritePost *.js,*.jsx call EsLintFix()
+augroup END
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
+
+let g:ale_fixers = {
+  \ 'javascript': ['eslint']
+  \ }
+nmap <leader>d <Plug>(ale_fix)
+
+set autoread
+au FocusGained,BufEnter * :checktime
