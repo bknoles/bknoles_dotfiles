@@ -335,3 +335,28 @@ autocmd VimEnter * match ExtraWhitespace /\s\+$/
 
 "Remove all trailing whitespace by pressing F4
 nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+nnoremap <leader>t :bo :terminal<CR> source $HOME/.bash_profile<CR>
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.html.erb,*.jsx,*.js'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+let g:closetag_filetypes = 'html,xhtml,phtml,eruby'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,javascript.jsx,javascript'
+let g:closetag_shortcut = '>'
+
+let g:ycm_key_list_select_completion = []
+
+let delimitMate_matchpairs = "(:),[:],{:}"
+
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+
+let g:jsx_ext_required = 0
+
+function! EsLintFix()
+  if confirm('Autofix code via ESLint?', "&Yes\n&No", 1)==1
+    execute "AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %"
+  endif
+endfunction
+
+autocmd BufWritePost *.js,*.jsx call EsLintFix()
