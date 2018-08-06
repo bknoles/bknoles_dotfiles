@@ -90,7 +90,8 @@ set background=dark
 colorscheme solarized
 "colorscheme Mustang
 "colorscheme railscasts
-set guifont=Iosevka:h15,Monaco:h13
+set guifont=Iosevka:h14,Monaco:h13
+set guioptions=
 set nu
 
 filetype on
@@ -100,9 +101,9 @@ filetype plugin indent on
 syntax on
 
 "tabstuff
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 au FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
@@ -114,6 +115,7 @@ au FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType coffee setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType scss setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType javascript.jsx setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 "NERDTree
 let NERDTreeChDirMode=2
