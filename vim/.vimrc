@@ -98,7 +98,9 @@ set background=dark
 colorscheme solarized
 "colorscheme Mustang
 "colorscheme railscasts
-set guifont=Iosevka:h14,Monaco:h13
+"set guifont=Iosevka:h14,Monaco:h13
+set macligatures
+set guifont=Fira\ Code:h14
 set guioptions=
 set nu
 
