@@ -37,6 +37,12 @@ set nocompatible
     Bundle 'vim-scripts/Wombat'
     Bundle 'morhetz/gruvbox'
     Bundle 'tomasr/molokai'
+    Bundle 'trevordmiller/nova-vim'
+    Bundle 'mhartington/oceanic-next'
+    Bundle 'carakan/new-railscasts-theme'
+    Bundle 'kaicataldo/material.vim'
+    Bundle 'haishanh/night-owl.vim'
+
 
     "Interface improvements
     Bundle 'lilydjwg/colorizer'
