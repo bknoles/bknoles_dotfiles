@@ -15,12 +15,7 @@ set nocompatible
     "Add your bundles here
 
     "Syntax highlighting plugins
-    Bundle 'jelera/vim-javascript-syntax'
-    Bundle 'manic/vim-php-indent'
     Bundle 'tpope/vim-rails'
-    Bundle 'jeyb/vim-jst'
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'AndrewRadev/vim-eco'
     Bundle 'vim-scripts/applescript.vim'
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'othree/html5.vim'
