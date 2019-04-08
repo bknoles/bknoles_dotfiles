@@ -9005,6 +9005,8 @@
 	<false/>
 	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
+	<key>NSStatusItem Preferred Position Item-0</key>
+	<real>531</real>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -9036,7 +9038,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 122 796 473 0 0 1440 877 </string>
+	<string>185 396 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 193 1440 684 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -10218,7 +10220,7 @@
 				<real>0.023</real>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.0</real>
+			<real>0.30280095880681818</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -10278,7 +10280,7 @@
 			<key>Transparency</key>
 			<real>0.11811667899408283</real>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -11631,7 +11633,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-09T17:41:22Z</date>
+	<date>2019-04-01T19:42:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -11669,6 +11671,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5</string>
+	<string>3.1.6beta5</string>
 </dict>
 </plist>
