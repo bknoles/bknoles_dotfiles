@@ -30,3 +30,7 @@ export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 alias dcr='docker-compose run'
 alias dcrr='docker-compose run --rm'
+
+eval "$(nodenv init -)"
+
+export PATH=$PATH:~/Library/Android/sdk/tools
