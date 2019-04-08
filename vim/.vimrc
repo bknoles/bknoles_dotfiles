@@ -47,7 +47,7 @@ set nocompatible
     "Interface improvements
     Bundle 'lilydjwg/colorizer'
     Bundle "honza/vim-snippets"
-    Bundle "garbas/vim-snipmate"
+    "Bundle "garbas/vim-snipmate"
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'tpope/vim-fugitive'
     Bundle 'mileszs/ack.vim'
@@ -72,6 +72,7 @@ set nocompatible
       Bundle 'roxma/nvim-yarp'
       Bundle 'roxma/vim-hug-neovim-rpc'
     endif
+    Plugin 'Shougo/neosnippet.vim'
 
     "Utilites
     Bundle "MarcWeber/vim-addon-mw-utils"
@@ -446,9 +447,6 @@ augroup eslinter
   autocmd BufWritePost *.js,*.jsx call EsLintFix()
 augroup END
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
-
 let g:ale_fixers = {
   \ 'javascript': ['eslint']
   \ }
@@ -456,3 +454,19 @@ nmap <leader>d <Plug>(ale_fix)
 
 set autoread
 au FocusGained,BufEnter * :checktime
+
+" Enable snipMate compatibility feature.
+"let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='$HOME/.vim/bundle/vim-snippets/snippets'
+imap <expr><TAB>
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:neosnippet#disable_runtime_snippets = {
+  \   '_' : 1,
+  \ }
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
