@@ -286,6 +286,8 @@ set smarttab      " insert tabs on the start of a line according to shiftwidth, 
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set showmatch                   " show matching brackets/parenthesis
+" Don't show ~ for lines beyoned end of file
+hi NonText guifg=bg
 
 "Turn off search highlighting with leader-/
 nmap <silent> <leader>/ :nohlsearch<CR>
