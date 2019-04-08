@@ -16,7 +16,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 # Increase history length
-HISTFILESIZE=2500
+HISTSIZE=
+HISTFILESIZE=
 
 # Migrate dev and test dbs in one command on Rails projects
 alias rake_db_migrate='rake db:migrate && rake db:test:prepare'
