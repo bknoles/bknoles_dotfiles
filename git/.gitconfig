@@ -4,7 +4,7 @@
 [color]
 	ui = true
 [core]
-	editor = mvim
+	editor = mvim -f
 	excludesfile = ~/.gitignore_global
 [alias]
     mylog = log --pretty=format:'%Cblue%h %C(yellow)%ad%Creset %s [%Cblue%an%Creset]' --graph --date=short
