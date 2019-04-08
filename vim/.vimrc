@@ -447,12 +447,16 @@ endfunction
 
 augroup eslinter
   autocmd!
-  autocmd BufWritePost *.js,*.jsx call EsLintFix()
+  "autocmd BufWritePost *.js,*.jsx call EsLintFix()
 augroup END
 
 let g:ale_fixers = {
   \ 'javascript': ['eslint']
   \ }
+let g:ale_linters = {
+  \ 'javascript': ['eslint']
+  \ }
+
 nmap <leader>d <Plug>(ale_fix)
 
 set autoread
