@@ -197,6 +197,7 @@ au FileType coffee setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType scss setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType javascript.jsx setlocal shiftwidth=2 softtabstop=2 tabstop=2
+au FileType php setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 "NERDTree
 let NERDTreeChDirMode=2
