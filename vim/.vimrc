@@ -24,7 +24,10 @@ set nocompatible
     Bundle 'ekalinin/Dockerfile.vim'
     Bundle 'mustache/vim-mustache-handlebars'
     Bundle 'pangloss/vim-javascript'
-    Bundle 'mxw/vim-jsx'
+    Bundle 'maxmellon/vim-jsx-pretty'
+    Bundle 'stephpy/vim-yaml'
+    Bundle 'sheerun/vim-polyglot'
+
 
     "Colorschemes
     Bundle 'altercation/vim-colors-solarized'
