@@ -15,6 +15,7 @@ set nocompatible
     "Add your bundles here
 
     "Syntax highlighting plugins
+    Bundle 'sheerun/vim-polyglot'
     Bundle 'tpope/vim-rails'
     Bundle 'vim-scripts/applescript.vim'
     Bundle 'vim-ruby/vim-ruby'
@@ -26,7 +27,6 @@ set nocompatible
     Bundle 'pangloss/vim-javascript'
     Bundle 'maxmellon/vim-jsx-pretty'
     Bundle 'stephpy/vim-yaml'
-    Bundle 'sheerun/vim-polyglot'
 
 
     "Colorschemes
