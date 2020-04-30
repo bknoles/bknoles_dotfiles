@@ -170,7 +170,8 @@ endif
 "MyColorscheme nova
 "MyColorscheme Mustang
 "MyColorscheme railscasts
-MyColorscheme OceanicNext
+"MyColorscheme OceanicNext
+MyColorscheme night-owl
 "set guifont=Iosevka:h14,Monaco:h13
 set macligatures
 set guifont=Fira\ Code:h14
