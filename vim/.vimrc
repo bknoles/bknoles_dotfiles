@@ -454,10 +454,14 @@ augroup eslinter
 augroup END
 
 let g:ale_fixers = {
-  \ 'javascript': ['eslint']
+  \ 'javascript': ['prettier', 'eslint'],
+  \ 'javascriptreact': ['prettier', 'eslint'],
+  \ 'css': ['prettier'],
   \ }
 let g:ale_linters = {
-  \ 'javascript': ['eslint']
+  \ 'javascript': ['prettier', 'eslint',],
+  \ 'javascriptreact': ['prettier', 'eslint'],
+  \ 'css': ['prettier'],
   \ }
 
 nmap <leader>d <Plug>(ale_fix)
