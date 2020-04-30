@@ -34,3 +34,11 @@ alias dcrr='docker-compose run --rm'
 eval "$(nodenv init -)"
 
 export PATH=$PATH:~/Library/Android/sdk/tools
+
+export GEM_HOME=~/.gem
+export PATH="$GEM_HOME/bin:$PATH"
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+alias cls='colorls'
+
+eval "$(rbenv init -)"
