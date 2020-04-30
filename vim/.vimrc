@@ -64,6 +64,8 @@ set nocompatible
     "Bundle 'valloric/youcompleteme'
     Bundle 'valloric/listtoggle'
     Bundle 'scrooloose/nerdtree'
+    Bundle 'ludovicchabant/vim-gutentags'
+    Bundle 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
     if has('nvim')
       Bundle 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
