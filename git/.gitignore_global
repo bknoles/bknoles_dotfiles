@@ -3,4 +3,6 @@
 *.swn
 *.DS_Store
 *.ruby-gemset
-*.ruby-version
+tags
+tags.lock
+tags.temp

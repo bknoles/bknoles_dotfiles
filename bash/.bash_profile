@@ -1,6 +1,3 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-
 # Show git branch in terminal output
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -35,10 +32,13 @@ eval "$(nodenv init -)"
 
 export PATH=$PATH:~/Library/Android/sdk/tools
 
-export GEM_HOME=~/.gem
-export PATH="$GEM_HOME/bin:$PATH"
+#export GEM_HOME=~/.gem
+#export PATH="$GEM_HOME/bin:$PATH"
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 alias cls='colorls'
 
 eval "$(rbenv init -)"
+export BAT_THEME="Night Owl"
+
+complete -C /usr/local/bin/terraform terraform

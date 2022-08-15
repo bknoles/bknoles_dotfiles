@@ -54,6 +54,7 @@ set nocompatible
     Bundle 'godlygeek/tabular'
     Bundle 'tpope/vim-surround'
     "Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Bundle 'junegunn/fzf.vim'
     Bundle 'airblade/vim-gitgutter'
     Bundle 'w0rp/ale'
@@ -173,7 +174,11 @@ endif
 "MyColorscheme OceanicNext
 MyColorscheme night-owl
 "set guifont=Iosevka:h14,Monaco:h13
-set macligatures
+
+if has("gui_macvim")
+  set macligatures
+endif
+
 set guifont=Fira\ Code:h14
 set guioptions=
 set nu
@@ -201,6 +206,7 @@ au FileType scss setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType javascript.jsx setlocal shiftwidth=2 softtabstop=2 tabstop=2
 au FileType php setlocal shiftwidth=4 softtabstop=4 tabstop=4
+au FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 "NERDTree
 let NERDTreeChDirMode=2
@@ -399,6 +405,24 @@ set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <Leader>p :Files<CR>
 nmap <D-p>:Files<CR>
+let g:fzf_layout = { 'down': '60%' }
+let g:fzf_preview_window = ['up:50%', 'ctrl-/']
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({ 'options': ['--preview-window', 'up:50%'] }), <bang>0)
 
 " Tell ack.vim to use ag (the Silver Searcher) instead
 if executable('ag')
@@ -457,6 +481,7 @@ let g:ale_fixers = {
   \ 'javascript': ['prettier', 'eslint'],
   \ 'javascriptreact': ['prettier', 'eslint'],
   \ 'css': ['prettier'],
+  \ 'typescript': ['tslint', 'eslint'],
   \ }
 let g:ale_linters = {
   \ 'javascript': ['prettier', 'eslint',],
@@ -483,4 +508,5 @@ let g:neosnippet#disable_runtime_snippets = {
   \ }
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
+"let g:deoplete#file#enable_buffer_path=1
+set completeopt=menu,noselect
