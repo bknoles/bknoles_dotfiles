@@ -1,91 +1,74 @@
 set nocompatible
-" Setting up Vundle - the vim plugin bundler
+" Auto install vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-    "Add your bundles here
 
 call plug#begin('~/.vim/bundle')
 
-    "Syntax highlighting plugins
-    Plug 'sheerun/vim-polyglot'
-    Plug 'tpope/vim-rails'
-    Plug 'vim-scripts/applescript.vim'
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'othree/html5.vim'
-    Plug 'tpope/vim-haml'
-    Plug 'hail2u/vim-css3-syntax'
-    Plug 'ekalinin/Dockerfile.vim'
-    Plug 'mustache/vim-mustache-handlebars'
-    Plug 'pangloss/vim-javascript'
-    Plug 'maxmellon/vim-jsx-pretty'
-    Plug 'stephpy/vim-yaml'
+"Syntax highlighting plugins
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-rails'
+Plug 'vim-scripts/applescript.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'othree/html5.vim'
+Plug 'tpope/vim-haml'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'stephpy/vim-yaml'
 
-    "Colorschemes
-    Plug 'altercation/vim-colors-solarized'
-    Plug '29decibel/codeschool-vim-theme'
-    Plug 'Lokaltog/vim-distinguished'
-    Plug 'tpope/vim-vividchalk'
-    Plug 'vim-scripts/Wombat'
-    Plug 'morhetz/gruvbox'
-    Plug 'tomasr/molokai'
-    Plug 'trevordmiller/nova-vim'
-    Plug 'mhartington/oceanic-next'
-    Plug 'carakan/new-railscasts-theme'
-    Plug 'kaicataldo/material.vim'
-    Plug 'haishanh/night-owl.vim'
+"Colorschemes
+Plug 'altercation/vim-colors-solarized'
+Plug '29decibel/codeschool-vim-theme'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'tpope/vim-vividchalk'
+Plug 'vim-scripts/Wombat'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
+Plug 'trevordmiller/nova-vim'
+Plug 'mhartington/oceanic-next'
+Plug 'carakan/new-railscasts-theme'
+Plug 'kaicataldo/material.vim'
+Plug 'haishanh/night-owl.vim'
 
 
-    "Interface improvements
-    Plug 'lilydjwg/colorizer'
-    Plug 'honza/vim-snippets'
-    "Plug "garbas/vim-snipmate"
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'tpope/vim-fugitive'
-    Plug 'mileszs/ack.vim'
-    Plug 'godlygeek/tabular'
-    Plug 'tpope/vim-surround'
-    "Plug 'Lokaltog/vim-easymotion'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'w0rp/ale'
-    Plug 'vim-airline/vim-airline'
-    Plug 'raimondi/delimitmate'
-    Plug 'alvan/vim-closetag'
-    Plug 'tpope/vim-endwise'
-    "Plug 'valloric/youcompleteme'
-    Plug 'valloric/listtoggle'
-    Plug 'scrooloose/nerdtree'
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+"Interface improvements
+Plug 'lilydjwg/colorizer'
+Plug 'honza/vim-snippets'
+"Plug "garbas/vim-snipmate"
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+"Plug 'Lokaltog/vim-easymotion'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'raimondi/delimitmate'
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-endwise'
+"Plug 'valloric/youcompleteme'
+Plug 'valloric/listtoggle'
+Plug 'scrooloose/nerdtree'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
-    "if has('nvim')
-      "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    "else
-      "Plug 'Shougo/deoplete.nvim'
-      "Plug 'roxma/nvim-yarp'
-      "Plug 'roxma/vim-hug-neovim-rpc'
-    "endif
-    "Plugin 'Shougo/neosnippet.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    "Utilites
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'skywind3000/asyncrun.vim'
+"Utilites
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
-
-
-    "if iCanHazVundle == 0
-        "echo "Installing Bundles, please ignore key map error messages"
-        "echo ""
-        ":BundleInstall
-    "endif
-" Setting up Vundle - the vim plugin bundler end
 
 autocmd VimEnter * call OpenNerdtreeOnly()
 function! OpenNerdtreeOnly()
@@ -278,10 +261,6 @@ function! VisualHTMLTagWrap()
   endif
 endfunction
 
-"Configuration options for chrisbra/color_highlight
-"let g:colorizer_auto_filetype='css,html,erb,scss'
-"let g:colorizer_skip_comments = 1
-
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
@@ -302,12 +281,6 @@ set virtualedit=onemore         " allow for cursor beyond last character
 set history=1000                " Store a ton of history (default is 20)
 map <F5> :setlocal spell! spelllang=en_us<CR>
 set hidden                      " allow buffer switching without saving
-
-" Run php beautifier on Ctrl-B
-au BufEnter,BufNew *.php map <C-b> :% ! php_beautifier --filters "PEAR() DocBlock()"<CR>
-"autocmd BufWrite *.php % !php_beautifier --filters "phpBB() DocBlock()"
-
-map <C-H> <ESC>:!phpm <C-R>=expand("<cword>")<CR><CR>
 
 " Set .md files as markdown syntax
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -452,8 +425,6 @@ let g:closetag_filetypes = 'html,xhtml,phtml,eruby'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,javascript.jsx,javascript'
 let g:closetag_shortcut = '>'
 
-"let g:ycm_key_list_select_completion = []
-
 let delimitMate_matchpairs = "(:),[:],{:}"
 
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
@@ -491,27 +462,8 @@ nmap <leader>d <Plug>(ale_fix)
 set autoread
 au FocusGained,BufEnter * :checktime
 
-" Enable snipMate compatibility feature.
-"let g:neosnippet#enable_snipmate_compatibility = 1
-" Tell Neosnippet about the other snippets
-"let g:neosnippet#snippets_directory='$HOME/.vim/bundle/vim-snippets/snippets'
-"imap <expr><TAB>
- "\ neosnippet#expandable_or_jumpable() ?
- "\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"let g:neosnippet#disable_runtime_snippets = {
-  "\   '_' : 1,
-  "\ }
 
-"let g:python_host_prog = '/Users/brianknoles/.pyenv/versions/3.10.6/bin/python'
-"let g:python3_host_prog = '/Users/brianknoles/.pyenv/versions/3.10.6/bin/python3'
-"set pythonthreedll=$HOME."/.pyenv/versions/3.10.6/lib/libpython3.10.a"
-"set pythonthreehome=$HOME."/.pyenv/versions/3.10.6"
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#file#enable_buffer_path=1
-"set completeopt=menu,noselect
-
+" Start Coc.vim options
 let g:coc_node_path = $HOME."/.nodenv/shims/node"
 
 " Some servers have issues with backup files, see #649.
@@ -543,3 +495,5 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" End Coc.vim options
