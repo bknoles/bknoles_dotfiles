@@ -5,13 +5,10 @@ autoload -U colors && colors
 
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' formats ' (%b) %F{red}%u  %F{green}%c%f'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+zstyle ':vcs_info:git:*' actionformats ' (%b) - %a %F{red}%u  %F{green}%c%f'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr ''
 zstyle ':vcs_info:*' stagedstr '晴'
-
-export TERM="xterm-256color"
-export BAT_THEME="Night Owl"
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
@@ -61,6 +58,10 @@ gtb() {
     git checkout $(git branch | grep "$1" | tail -$tail_amount | head -1)
 }
 
+# Env variables
+export TERM="xterm-256color"
+export BAT_THEME="Night Owl"
+
 # Initiate config for local packages
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(nodenv init -)"
@@ -73,4 +74,4 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 alias dcr='docker-compose run'
 alias dcrr='docker-compose run --rm'
 alias cls='colorls'
-alias rezsh='source ~/.zshrc'
+alias rezsh='source ~/.zshrc && source ~/.zshenv'
