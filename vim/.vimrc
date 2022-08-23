@@ -1,95 +1,92 @@
 set nocompatible
 " Setting up Vundle - the vim plugin bundler
-    let iCanHazVundle=1
-    let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-    if !filereadable(vundle_readme)
-        echo "Installing Vundle.."
-        echo ""
-        silent !mkdir -p ~/.vim/bundle
-        silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-        let iCanHazVundle=0
-    endif
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-    Bundle 'gmarik/vundle'
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
     "Add your bundles here
 
-    "Syntax highlighting plugins
-    Bundle 'sheerun/vim-polyglot'
-    Bundle 'tpope/vim-rails'
-    Bundle 'vim-scripts/applescript.vim'
-    Bundle 'vim-ruby/vim-ruby'
-    Bundle 'othree/html5.vim'
-    Bundle 'tpope/vim-haml'
-    Bundle 'hail2u/vim-css3-syntax'
-    Bundle 'ekalinin/Dockerfile.vim'
-    Bundle 'mustache/vim-mustache-handlebars'
-    Bundle 'pangloss/vim-javascript'
-    Bundle 'maxmellon/vim-jsx-pretty'
-    Bundle 'stephpy/vim-yaml'
+call plug#begin('~/.vim/bundle')
 
+    "Syntax highlighting plugins
+    Plug 'sheerun/vim-polyglot'
+    Plug 'tpope/vim-rails'
+    Plug 'vim-scripts/applescript.vim'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'othree/html5.vim'
+    Plug 'tpope/vim-haml'
+    Plug 'hail2u/vim-css3-syntax'
+    Plug 'ekalinin/Dockerfile.vim'
+    Plug 'mustache/vim-mustache-handlebars'
+    Plug 'pangloss/vim-javascript'
+    Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'stephpy/vim-yaml'
 
     "Colorschemes
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle '29decibel/codeschool-vim-theme'
-    Bundle 'Lokaltog/vim-distinguished'
-    Bundle 'tpope/vim-vividchalk'
-    Bundle 'vim-scripts/Wombat'
-    Bundle 'morhetz/gruvbox'
-    Bundle 'tomasr/molokai'
-    Bundle 'trevordmiller/nova-vim'
-    Bundle 'mhartington/oceanic-next'
-    Bundle 'carakan/new-railscasts-theme'
-    Bundle 'kaicataldo/material.vim'
-    Bundle 'haishanh/night-owl.vim'
+    Plug 'altercation/vim-colors-solarized'
+    Plug '29decibel/codeschool-vim-theme'
+    Plug 'Lokaltog/vim-distinguished'
+    Plug 'tpope/vim-vividchalk'
+    Plug 'vim-scripts/Wombat'
+    Plug 'morhetz/gruvbox'
+    Plug 'tomasr/molokai'
+    Plug 'trevordmiller/nova-vim'
+    Plug 'mhartington/oceanic-next'
+    Plug 'carakan/new-railscasts-theme'
+    Plug 'kaicataldo/material.vim'
+    Plug 'haishanh/night-owl.vim'
 
 
     "Interface improvements
-    Bundle 'lilydjwg/colorizer'
-    Bundle "honza/vim-snippets"
-    "Bundle "garbas/vim-snipmate"
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'godlygeek/tabular'
-    Bundle 'tpope/vim-surround'
-    "Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Bundle 'junegunn/fzf.vim'
-    Bundle 'airblade/vim-gitgutter'
-    Bundle 'w0rp/ale'
-    Bundle 'vim-airline/vim-airline'
-    Bundle 'raimondi/delimitmate'
-    Bundle 'alvan/vim-closetag'
-    Bundle 'tpope/vim-endwise'
-    "Bundle 'valloric/youcompleteme'
-    Bundle 'valloric/listtoggle'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'ludovicchabant/vim-gutentags'
-    Bundle 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+    Plug 'lilydjwg/colorizer'
+    Plug 'honza/vim-snippets'
+    "Plug "garbas/vim-snipmate"
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'tpope/vim-fugitive'
+    Plug 'mileszs/ack.vim'
+    Plug 'godlygeek/tabular'
+    Plug 'tpope/vim-surround'
+    "Plug 'Lokaltog/vim-easymotion'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'w0rp/ale'
+    Plug 'vim-airline/vim-airline'
+    Plug 'raimondi/delimitmate'
+    Plug 'alvan/vim-closetag'
+    Plug 'tpope/vim-endwise'
+    "Plug 'valloric/youcompleteme'
+    Plug 'valloric/listtoggle'
+    Plug 'scrooloose/nerdtree'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
-    if has('nvim')
-      Bundle 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-      Bundle 'Shougo/deoplete.nvim'
-      Bundle 'roxma/nvim-yarp'
-      Bundle 'roxma/vim-hug-neovim-rpc'
-    endif
-    Plugin 'Shougo/neosnippet.vim'
+    "if has('nvim')
+      "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "else
+      "Plug 'Shougo/deoplete.nvim'
+      "Plug 'roxma/nvim-yarp'
+      "Plug 'roxma/vim-hug-neovim-rpc'
+    "endif
+    "Plugin 'Shougo/neosnippet.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     "Utilites
-    Bundle "MarcWeber/vim-addon-mw-utils"
-    Bundle "tomtom/tlib_vim"
-    Bundle 'skywind3000/asyncrun.vim'
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'skywind3000/asyncrun.vim'
 
-    if iCanHazVundle == 0
-        echo "Installing Bundles, please ignore key map error messages"
-        echo ""
-        :BundleInstall
-    endif
+call plug#end()
+
+
+    "if iCanHazVundle == 0
+        "echo "Installing Bundles, please ignore key map error messages"
+        "echo ""
+        ":BundleInstall
+    "endif
 " Setting up Vundle - the vim plugin bundler end
 
-set wildignore+=trunk/wp-content/themes/eddiemachado-bones-responsive-33b0dc3/learning-tree
 autocmd VimEnter * call OpenNerdtreeOnly()
 function! OpenNerdtreeOnly()
     " if we aren't opening a file directly, open nerdtree and close the
@@ -455,7 +452,7 @@ let g:closetag_filetypes = 'html,xhtml,phtml,eruby'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,javascript.jsx,javascript'
 let g:closetag_shortcut = '>'
 
-let g:ycm_key_list_select_completion = []
+"let g:ycm_key_list_select_completion = []
 
 let delimitMate_matchpairs = "(:),[:],{:}"
 
@@ -497,16 +494,52 @@ au FocusGained,BufEnter * :checktime
 " Enable snipMate compatibility feature.
 "let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='$HOME/.vim/bundle/vim-snippets/snippets'
-imap <expr><TAB>
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-let g:neosnippet#disable_runtime_snippets = {
-  \   '_' : 1,
-  \ }
+"let g:neosnippet#snippets_directory='$HOME/.vim/bundle/vim-snippets/snippets'
+"imap <expr><TAB>
+ "\ neosnippet#expandable_or_jumpable() ?
+ "\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"let g:neosnippet#disable_runtime_snippets = {
+  "\   '_' : 1,
+  "\ }
 
-let g:deoplete#enable_at_startup = 1
+"let g:python_host_prog = '/Users/brianknoles/.pyenv/versions/3.10.6/bin/python'
+"let g:python3_host_prog = '/Users/brianknoles/.pyenv/versions/3.10.6/bin/python3'
+"set pythonthreedll=$HOME."/.pyenv/versions/3.10.6/lib/libpython3.10.a"
+"set pythonthreehome=$HOME."/.pyenv/versions/3.10.6"
+"let g:deoplete#enable_at_startup = 1
 "let g:deoplete#file#enable_buffer_path=1
-set completeopt=menu,noselect
+"set completeopt=menu,noselect
+
+let g:coc_node_path = $HOME."/.nodenv/shims/node"
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() :"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>\<c-r>=EndwiseDiscretionary()\<CR>" 
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
