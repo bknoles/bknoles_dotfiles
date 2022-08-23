@@ -370,7 +370,7 @@ command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
 let delimitMate_expand_space=1
 
 " fzf mappings
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/bin/fzf
 set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <Leader>p :Files<CR>
