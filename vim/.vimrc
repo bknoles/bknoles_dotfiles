@@ -417,7 +417,7 @@ autocmd VimEnter * match ExtraWhitespace /\s\+$/
 "Remove all trailing whitespace by pressing F4
 nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-nnoremap <leader>t :bo :terminal<CR> source $HOME/.bash_profile<CR>
+nnoremap <leader>t :bo :terminal<CR> source $HOME/.zshrc<CR>
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.html.erb,*.jsx,*.js'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
