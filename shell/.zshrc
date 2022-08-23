@@ -4,7 +4,11 @@ precmd() { vcs_info }
 autoload -U colors && colors
 
 # Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:git:*' formats ' (%b) %F{red}%u  %F{green}%c%f'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ''
+zstyle ':vcs_info:*' stagedstr '晴'
 
 export TERM="xterm-256color"
 export BAT_THEME="Night Owl"
@@ -12,9 +16,9 @@ export BAT_THEME="Night Owl"
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
 COLOR_END=$'%f'
-COLOR_USR=$'%F{blue}'
+COLOR_USR=$'%F{magenta}'
 COLOR_DIR=$'%F{11}'
-COLOR_GIT=$'%F{green}'
+COLOR_GIT=$'%F{blue}'
 NEWLINE=$'\n'
 setopt PROMPT_SUBST
 export PROMPT='${COLOR_USR}%n${COLOR_END}:${COLOR_DIR}%~ ${COLOR_GIT}${vcs_info_msg_0_}${COLOR_END}${NEWLINE}$ '
