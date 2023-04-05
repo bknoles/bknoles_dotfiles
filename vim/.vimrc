@@ -62,6 +62,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'github/copilot.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'wellle/context.vim'
 
 "Utilites
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -450,10 +453,12 @@ let g:ale_fixers = {
   \ 'javascriptreact': ['prettier', 'eslint'],
   \ 'css': ['prettier'],
   \ 'typescript': ['tslint', 'eslint'],
+  \ 'typescriptreact': ['prettier', 'eslint'],
   \ }
 let g:ale_linters = {
   \ 'javascript': ['prettier', 'eslint',],
   \ 'javascriptreact': ['prettier', 'eslint'],
+  \ 'typescriptreact': ['prettier', 'eslint', 'tsserver'],
   \ 'css': ['prettier'],
   \ }
 
@@ -497,3 +502,14 @@ function! CheckBackspace() abort
 endfunction
 
 " End Coc.vim options
+
+" Copilot options
+imap <silent> <D-]> <Plug>(copilot-next)
+imap <silent> <D-[> <Plug>(copilot-previous)
+imap <silent> <D-\> <Plug>(copilot-dismiss)
+
+" End Copilot options
+
+" Markdown preview options
+let g:mkdp_auto_close = 0
+nmap <C-p> <Plug>MarkdownPreviewToggle
