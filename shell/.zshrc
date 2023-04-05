@@ -68,7 +68,17 @@ eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 source $(dirname $(gem which colorls))/tab_complete.sh
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # Aliases
 alias dcr='docker-compose run'
