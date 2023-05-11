@@ -64,7 +64,7 @@ Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-Plug 'wellle/context.vim'
+"Plug 'wellle/context.vim'
 
 "Utilites
 Plug 'MarcWeber/vim-addon-mw-utils'
