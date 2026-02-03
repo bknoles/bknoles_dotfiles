@@ -43,8 +43,6 @@ require("lazy").setup({
     lazy = true,
   },
   { "norcalli/nvim-colorizer.lua", config = true },
-  -- TODO later: setup git signs for line numbers
-  -- { ", config = true }
   { "kylechui/nvim-surround", config = true },
   { "tpope/vim-fugitive" },
   {
@@ -95,32 +93,81 @@ require("lazy").setup({
     build = "make",
   },
   {
-  "lewis6991/gitsigns.nvim",
-  config = function()
-    require("gitsigns").setup({
-      on_attach = function(bufnr)
-        local gs = package.loaded.gitsigns
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup({
+	on_attach = function(bufnr)
+	  local gs = package.loaded.gitsigns
 
-        local function map(mode, l, r, desc)
-          vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
-        end
+	  local function map(mode, l, r, desc)
+	    vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+	  end
 
-        -- Navigation
-        map("n", "]h", gs.next_hunk, "Next hunk")
-        map("n", "[h", gs.prev_hunk, "Prev hunk")
+	  -- Navigation
+	  map("n", "]h", gs.next_hunk, "Next hunk")
+	  map("n", "[h", gs.prev_hunk, "Prev hunk")
 
-        -- Actions
-        map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
-        map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
-        map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
-        map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
-        map("n", "<leader>hb", gs.blame_line, "Blame line")
-        map("n", "<leader>hd", gs.diffthis, "Diff this")
+	  -- Actions
+	  map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
+	  map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
+	  map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
+	  map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
+	  map("n", "<leader>hb", gs.blame_line, "Blame line")
+	  map("n", "<leader>hd", gs.diffthis, "Diff this")
 
-        -- Toggle blame
-        map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle line blame")
-      end,
-    })
-  end,
-},
+	  -- Toggle blame
+	  map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle line blame")
+	end,
+      })
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup()
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({
+	map_cr = true,          -- expand on enter (your commented-out setting)
+	map_bs = true,          -- delete pairs with backspace
+      })
+    end
+  },
+  { "windwp/nvim-ts-autotag", config = true, },
+  { "RRethy/nvim-treesitter-endwise" },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    keys = {
+      { "<leader>e", ":Neotree toggle<CR>", desc = "Toggle explorer" },
+      { "<leader>fr", ":Neotree reveal<CR>", desc = "Reveal current file" },
+    },
+    config = function()
+      require("neo-tree").setup({
+	close_if_last_window = true,
+	filesystem = {
+	  follow_current_file = { enabled = true },
+	},
+      })
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = { "markdown" },
+    config = function()
+      vim.g.mkdp_auto_close = 0
+      vim.keymap.set("n", "<leader>mp", "<Plug>MarkdownPreviewToggle", { desc = "Toggle markdown preview" })
+    end,
+  },
 })
