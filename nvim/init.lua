@@ -44,7 +44,7 @@ require("lazy").setup({
   },
   { "norcalli/nvim-colorizer.lua", config = true },
   -- TODO later: setup git signs for line numbers
-  -- { "lewis6991/gitsigns.nvim", config = true }
+  -- { ", config = true }
   { "kylechui/nvim-surround", config = true },
   { "tpope/vim-fugitive" },
   {
@@ -94,4 +94,33 @@ require("lazy").setup({
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
   },
+  {
+  "lewis6991/gitsigns.nvim",
+  config = function()
+    require("gitsigns").setup({
+      on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+        end
+
+        -- Navigation
+        map("n", "]h", gs.next_hunk, "Next hunk")
+        map("n", "[h", gs.prev_hunk, "Prev hunk")
+
+        -- Actions
+        map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
+        map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
+        map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
+        map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
+        map("n", "<leader>hb", gs.blame_line, "Blame line")
+        map("n", "<leader>hd", gs.diffthis, "Diff this")
+
+        -- Toggle blame
+        map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle line blame")
+      end,
+    })
+  end,
+},
 })
