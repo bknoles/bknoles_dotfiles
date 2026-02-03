@@ -1,5 +1,6 @@
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.number = true
+vim.opt.termguicolors = true
 
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -41,4 +42,9 @@ require("lazy").setup({
     name = "catppuccin",
     lazy = true,
   },
+  { "norcalli/nvim-colorizer.lua", config = true },
+  -- TODO later: setup git signs for line numbers
+  -- { "lewis6991/gitsigns.nvim", config = true }
+  { "kylechui/nvim-surround", config = true },
+  { "tpope/vim-fugitive" },
 })
