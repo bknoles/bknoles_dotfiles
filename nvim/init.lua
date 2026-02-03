@@ -36,4 +36,9 @@ require("lazy").setup({
       vim.cmd.colorscheme("night-owl")
     end,
   },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+  },
 })
