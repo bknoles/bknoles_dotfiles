@@ -7,8 +7,8 @@ autoload -U colors && colors
 zstyle ':vcs_info:git:*' formats ' (%b) %F{red}%u  %F{green}%c%f'
 zstyle ':vcs_info:git:*' actionformats ' (%b) - %a %F{red}%u  %F{green}%c%f'
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr ''
-zstyle ':vcs_info:*' stagedstr '晴'
+zstyle ':vcs_info:*' unstagedstr '󰏫'
+zstyle ':vcs_info:*' stagedstr '󰔓'
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
@@ -70,6 +70,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+eval "$(direnv hook zsh)"
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 if type brew &>/dev/null
@@ -85,3 +86,4 @@ alias dcr='docker-compose run'
 alias dcrr='docker-compose run --rm'
 alias cls='colorls'
 alias rezsh='source ~/.zshrc && source ~/.zshenv'
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
