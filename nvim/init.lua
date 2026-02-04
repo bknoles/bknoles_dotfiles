@@ -1,6 +1,7 @@
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.number = true
 vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
 
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -168,6 +169,157 @@ require("lazy").setup({
     config = function()
       vim.g.mkdp_auto_close = 0
       vim.keymap.set("n", "<leader>mp", "<Plug>MarkdownPreviewToggle", { desc = "Toggle markdown preview" })
+    end,
+  },
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup({
+	formatters_by_ft = {
+	  javascript = { "prettier", "eslint_d" },
+	  javascriptreact = { "prettier", "eslint_d" },
+	  typescript = { "prettier", "eslint_d" },
+	  typescriptreact = { "prettier", "eslint_d" },
+	  css = { "prettier" },
+	},
+      })
+
+      vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+      vim.keymap.set("n", "<leader>df", function()
+	require("conform").format({ async = true })
+      end, { desc = "Format buffer" })
+    end,
+  },
+  -- Mason: install language servers
+  {
+    "williamboman/mason.nvim",
+    config = true,
+  },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason-lspconfig").setup({
+	ensure_installed = {
+	  "ts_ls",
+	  "eslint",
+	  "ruby_lsp",
+	  "rust_analyzer",
+	  "pyright",
+	  "lua_ls",
+	  "html",
+	  "cssls",
+	},
+      })
+    end,
+  },
+
+  -- LSP keymaps and config
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    config = function()
+      -- Keymaps when LSP attaches
+      vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+	  local bufnr = args.buf
+	  local map = function(keys, func, desc)
+	    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+	  end
+
+	  map("gd", vim.lsp.buf.definition, "Go to definition")
+	  map("gr", vim.lsp.buf.references, "Find references")
+	  map("K", vim.lsp.buf.hover, "Hover docs")
+	  map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+	  map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+	  map("gD", vim.lsp.buf.declaration, "Go to declaration")
+	  map("gi", vim.lsp.buf.implementation, "Go to implementation")
+	end,
+      })
+
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      vim.lsp.config("*", {
+	capabilities = capabilities,
+      })
+
+      -- Server configs
+      vim.lsp.config("lua_ls", {
+	settings = {
+	  Lua = {
+	    diagnostics = { globals = { "vim" } },
+	  },
+	},
+      })
+
+      -- Enable servers
+      vim.lsp.enable({
+	"ts_ls", "eslint", "ruby_lsp", "gopls",
+	"rust_analyzer", "pyright", "lua_ls", "html", "cssls",
+      })
+    end,
+  },
+  -- Completion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",     -- LSP completions
+      "hrsh7th/cmp-buffer",        -- Buffer words
+      "hrsh7th/cmp-path",          -- File paths
+      "L3MON4D3/LuaSnip",          -- Snippet engine
+      "saadparwaiz1/cmp_luasnip",  -- Snippet completions
+    },
+    config = function()
+      local cmp = require("cmp")
+      local luasnip = require("luasnip")
+
+      cmp.setup({
+	snippet = {
+	  expand = function(args)
+	    luasnip.lsp_expand(args.body)
+	  end,
+	},
+	mapping = cmp.mapping.preset.insert({
+	  -- Tab to cycle through completions
+	  ["<Tab>"] = cmp.mapping(function(fallback)
+	    if cmp.visible() then
+	      cmp.select_next_item()
+	    elseif luasnip.expand_or_jumpable() then
+	      luasnip.expand_or_jump()
+	    else
+	      fallback()
+	    end
+	  end, { "i", "s" }),
+
+	  ["<S-Tab>"] = cmp.mapping(function(fallback)
+	    if cmp.visible() then
+	      cmp.select_prev_item()
+	    elseif luasnip.jumpable(-1) then
+	      luasnip.jump(-1)
+	    else
+	      fallback()
+	    end
+	  end, { "i", "s" }),
+
+	  -- Enter to confirm
+	  ["<CR>"] = cmp.mapping.confirm({ select = false }),
+
+	  -- Ctrl+Space to trigger completion
+	  ["<C-Space>"] = cmp.mapping.complete(),
+
+	  -- Scroll docs
+	  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+	  ["<C-f>"] = cmp.mapping.scroll_docs(4),
+	}),
+	sources = cmp.config.sources({
+	  { name = "nvim_lsp" },
+	  { name = "luasnip" },
+	  { name = "buffer" },
+	  { name = "path" },
+	}),
+      })
     end,
   },
 })
