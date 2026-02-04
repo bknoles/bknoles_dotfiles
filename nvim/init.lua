@@ -73,12 +73,12 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter").setup({
-	ensure_installed = {
-	  "ruby", "javascript", "typescript", "tsx",
-	  "html", "css", "yaml", "dockerfile",
-	  "lua", "vim", "vimdoc",
-	  "python", "rust", "go",
-	},
+        ensure_installed = {
+          "ruby", "javascript", "typescript", "tsx",
+          "html", "css", "yaml", "dockerfile",
+          "lua", "vim", "vimdoc",
+          "python", "rust", "go",
+        },
       })
     end,
   },
@@ -106,16 +106,16 @@ require("lazy").setup({
       local builtin = require("telescope.builtin")
 
       telescope.setup({
-	defaults = {
-	  layout_strategy = "vertical",
-	  layout_config = {
-	    vertical = {
-	      height = 0.6,
-	      preview_height = 0.5,
-	      preview_cutoff = 0,
-	    },
-	  },
-	},
+        defaults = {
+          layout_strategy = "vertical",
+          layout_config = {
+            vertical = {
+              height = 0.6,
+              preview_height = 0.5,
+              preview_cutoff = 0,
+            },
+          },
+        },
       })
 
       -- Files
@@ -149,28 +149,28 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup({
-	on_attach = function(bufnr)
-	  local gs = package.loaded.gitsigns
+        on_attach = function(bufnr)
+          local gs = package.loaded.gitsigns
 
-	  local function map(mode, l, r, desc)
-	    vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
-	  end
+          local function map(mode, l, r, desc)
+            vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+          end
 
-	  -- Navigation
-	  map("n", "]h", gs.next_hunk, "Next hunk")
-	  map("n", "[h", gs.prev_hunk, "Prev hunk")
+          -- Navigation
+          map("n", "]h", gs.next_hunk, "Next hunk")
+          map("n", "[h", gs.prev_hunk, "Prev hunk")
 
-	  -- Actions
-	  map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
-	  map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
-	  map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
-	  map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
-	  map("n", "<leader>hb", gs.blame_line, "Blame line")
-	  map("n", "<leader>hd", gs.diffthis, "Diff this")
+          -- Actions
+          map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
+          map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
+          map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
+          map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
+          map("n", "<leader>hb", gs.blame_line, "Blame line")
+          map("n", "<leader>hd", gs.diffthis, "Diff this")
 
-	  -- Toggle blame
-	  map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle line blame")
-	end,
+          -- Toggle blame
+          map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle line blame")
+        end,
       })
     end,
   },
@@ -186,8 +186,8 @@ require("lazy").setup({
     event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup({
-	map_cr = true,          -- expand on enter (your commented-out setting)
-	map_bs = true,          -- delete pairs with backspace
+        map_cr = true,          -- expand on enter (your commented-out setting)
+        map_bs = true,          -- delete pairs with backspace
       })
     end
   },
@@ -207,10 +207,10 @@ require("lazy").setup({
     },
     config = function()
       require("neo-tree").setup({
-	close_if_last_window = true,
-	filesystem = {
-	  follow_current_file = { enabled = true },
-	},
+        close_if_last_window = true,
+        filesystem = {
+          follow_current_file = { enabled = true },
+        },
       })
     end,
   },
@@ -227,18 +227,18 @@ require("lazy").setup({
     "stevearc/conform.nvim",
     config = function()
       require("conform").setup({
-	formatters_by_ft = {
-	  javascript = { "prettier", "eslint_d" },
-	  javascriptreact = { "prettier", "eslint_d" },
-	  typescript = { "prettier", "eslint_d" },
-	  typescriptreact = { "prettier", "eslint_d" },
-	  css = { "prettier" },
-	},
+        formatters_by_ft = {
+          javascript = { "prettier", "eslint_d" },
+          javascriptreact = { "prettier", "eslint_d" },
+          typescript = { "prettier", "eslint_d" },
+          typescriptreact = { "prettier", "eslint_d" },
+          css = { "prettier" },
+        },
       })
 
       vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostic" })
       vim.keymap.set("n", "<leader>df", function()
-	require("conform").format({ async = true })
+        require("conform").format({ async = true })
       end, { desc = "Format buffer" })
     end,
   },
@@ -253,16 +253,16 @@ require("lazy").setup({
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-	ensure_installed = {
-	  "ts_ls",
-	  "eslint",
-	  "ruby_lsp",
-	  "rust_analyzer",
-	  "pyright",
-	  "lua_ls",
-	  "html",
-	  "cssls",
-	},
+        ensure_installed = {
+          "ts_ls",
+          "eslint",
+          "ruby_lsp",
+          "rust_analyzer",
+          "pyright",
+          "lua_ls",
+          "html",
+          "cssls",
+        },
       })
     end,
   },
@@ -274,41 +274,41 @@ require("lazy").setup({
     config = function()
       -- Keymaps when LSP attaches
       vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-	  local bufnr = args.buf
-	  local map = function(keys, func, desc)
-	    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-	  end
+        callback = function(args)
+          local bufnr = args.buf
+          local map = function(keys, func, desc)
+            vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+          end
 
-	  map("gd", vim.lsp.buf.definition, "Go to definition")
-	  map("gr", vim.lsp.buf.references, "Find references")
-	  map("K", vim.lsp.buf.hover, "Hover docs")
-	  map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
-	  map("<leader>ca", vim.lsp.buf.code_action, "Code action")
-	  map("gD", vim.lsp.buf.declaration, "Go to declaration")
-	  map("gi", vim.lsp.buf.implementation, "Go to implementation")
-	end,
+          map("gd", vim.lsp.buf.definition, "Go to definition")
+          map("gr", vim.lsp.buf.references, "Find references")
+          map("K", vim.lsp.buf.hover, "Hover docs")
+          map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+          map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("gD", vim.lsp.buf.declaration, "Go to declaration")
+          map("gi", vim.lsp.buf.implementation, "Go to implementation")
+        end,
       })
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       vim.lsp.config("*", {
-	capabilities = capabilities,
+        capabilities = capabilities,
       })
 
       -- Server configs
       vim.lsp.config("lua_ls", {
-	settings = {
-	  Lua = {
-	    diagnostics = { globals = { "vim" } },
-	  },
-	},
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+          },
+        },
       })
 
       -- Enable servers
       vim.lsp.enable({
-	"ts_ls", "eslint", "ruby_lsp", "gopls",
-	"rust_analyzer", "pyright", "lua_ls", "html", "cssls",
+        "ts_ls", "eslint", "ruby_lsp", "gopls",
+        "rust_analyzer", "pyright", "lua_ls", "html", "cssls",
       })
     end,
   },
@@ -328,49 +328,49 @@ require("lazy").setup({
       local luasnip = require("luasnip")
 
       cmp.setup({
-	snippet = {
-	  expand = function(args)
-	    luasnip.lsp_expand(args.body)
-	  end,
-	},
-	mapping = cmp.mapping.preset.insert({
-	  -- Tab to cycle through completions
-	  ["<Tab>"] = cmp.mapping(function(fallback)
-	    if cmp.visible() then
-	      cmp.select_next_item()
-	    elseif luasnip.expand_or_jumpable() then
-	      luasnip.expand_or_jump()
-	    else
-	      fallback()
-	    end
-	  end, { "i", "s" }),
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          -- Tab to cycle through completions
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
 
-	  ["<S-Tab>"] = cmp.mapping(function(fallback)
-	    if cmp.visible() then
-	      cmp.select_prev_item()
-	    elseif luasnip.jumpable(-1) then
-	      luasnip.jump(-1)
-	    else
-	      fallback()
-	    end
-	  end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
 
-	  -- Enter to confirm
-	  ["<CR>"] = cmp.mapping.confirm({ select = false }),
+          -- Enter to confirm
+          ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
-	  -- Ctrl+Space to trigger completion
-	  ["<C-Space>"] = cmp.mapping.complete(),
+          -- Ctrl+Space to trigger completion
+          ["<C-Space>"] = cmp.mapping.complete(),
 
-	  -- Scroll docs
-	  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-	  ["<C-f>"] = cmp.mapping.scroll_docs(4),
-	}),
-	sources = cmp.config.sources({
-	  { name = "nvim_lsp" },
-	  { name = "luasnip" },
-	  { name = "buffer" },
-	  { name = "path" },
-	}),
+          -- Scroll docs
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        }),
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "path" },
+        }),
       })
     end,
   },
