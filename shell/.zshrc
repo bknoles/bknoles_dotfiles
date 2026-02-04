@@ -87,3 +87,4 @@ alias dcrr='docker-compose run --rm'
 alias cls='colorls'
 alias rezsh='source ~/.zshrc && source ~/.zshenv'
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+export PATH="$HOME/.local/bin:$PATH"
