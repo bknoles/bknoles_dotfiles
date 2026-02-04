@@ -52,7 +52,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Open terminal at bottom
-vim.keymap.set("n", "<leader>t", ":bo 15split | terminal<CR>", { desc = "Open terminal" })
+-- Trying out toggleterm instead
+-- vim.keymap.set("n", "<leader>t", ":bo 15split | terminal<CR>", { desc = "Open terminal" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Setup lazy.nvim
@@ -371,6 +372,16 @@ require("lazy").setup({
           { name = "buffer" },
           { name = "path" },
         }),
+      })
+    end,
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("toggleterm").setup({
+        size = 15,
+        direction = "horizontal",
+        open_mapping = "<leader>t",
       })
     end,
   },
