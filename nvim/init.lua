@@ -397,5 +397,27 @@ require("lazy").setup({
 
       vim.keymap.set("n", "<leader>ts", ":Telescope toggleterm<CR>", { desc = "List terminals" })
     end
-  }
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<Tab>",
+            accept_word = "<C-Right>",
+            accept_line = "<C-Down>",
+            dismiss = "<C-]>",
+            next = "<M-]>",
+            prev = "<M-[>",
+          },
+        },
+        panel = { enabled = false },
+      })
+    end,
+  },
 })
