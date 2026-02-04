@@ -3,6 +3,58 @@ vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
+vim.g.editorconfig = true
+-- Disabling to see how I like it
+-- vim.opt.cursorcolumn = true
+vim.opt.cursorline = true
+vim.opt.scrolloff = 10
+
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true       -- default in Neovim, but harmless
+
+-- Matching
+vim.opt.showmatch = true
+
+-- Hide ~ for empty lines
+vim.opt.fillchars = { eob = " " }
+
+-- Clear search highlight
+vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>", { silent = true, desc = "Clear search highlight" })
+
+-- Editing
+vim.opt.virtualedit = "onemore"
+vim.opt.history = 1000
+
+-- Spellcheck toggle
+vim.keymap.set("n", "<F5>", ":setlocal spell! spelllang=en_us<CR>", { desc = "Toggle spellcheck" })
+
+-- Shortcut to edit init.lua
+vim.keymap.set("n", "<leader>ev", ":e $MYVIMRC<CR>", { silent = true, desc = "Edit config" })
+
+vim.keymap.set("n", "<leader>w", ":cclose<CR>", { desc = "Close quickfix" })
+vim.keymap.set("n", "<leader>q", ":copen<CR>", { desc = "Open quickfix" })
+
+-- Remove trailing whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    local save_cursor = vim.fn.getpos(".")
+    vim.cmd([[%s/\s\+$//e]])
+    vim.fn.setpos(".", save_cursor)
+  end,
+})
+
+-- Open terminal at bottom
+vim.keymap.set("n", "<leader>t", ":bo 15split | terminal<CR>", { desc = "Open terminal" })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
