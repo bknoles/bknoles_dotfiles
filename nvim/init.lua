@@ -202,7 +202,7 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
     },
     keys = {
-      { "<leader>e", ":Neotree toggle<CR>", desc = "Toggle explorer" },
+      { "<leader>ee", ":Neotree toggle<CR>", desc = "Toggle explorer" },
       { "<leader>fr", ":Neotree reveal<CR>", desc = "Reveal current file" },
     },
     config = function()
