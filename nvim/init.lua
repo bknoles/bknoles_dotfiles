@@ -381,8 +381,21 @@ require("lazy").setup({
       require("toggleterm").setup({
         size = 15,
         direction = "horizontal",
-        open_mapping = "<leader>t",
+        open_mapping = "<leader>tt",
       })
+
     end,
   },
+  {
+    "da-moon/telescope-toggleterm.nvim",
+    config = function()
+      require("telescope-toggleterm").setup({
+        telescope_mappings = {
+          ["<leader>tk"] = require("telescope-toggleterm").actions.exit_terminal,
+        }
+      })
+
+      vim.keymap.set("n", "<leader>ts", ":Telescope toggleterm<CR>", { desc = "List terminals" })
+    end
+  }
 })
