@@ -382,8 +382,8 @@ require("lazy").setup({
         size = 15,
         direction = "horizontal",
         open_mapping = "<leader>tt",
+        shade_terminals = false,
       })
-
     end,
   },
   {
