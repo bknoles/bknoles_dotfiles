@@ -139,6 +139,7 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep in files" })
       vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Grep word under cursor" })
       vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Recent files" })
+      vim.keymap.set("n", "<leader>fa", function() builtin.find_files({ hidden = true }) end, { desc = "Find including hidden" })
 
       -- Buffers
       vim.keymap.set("n", ";", builtin.buffers, { desc = "Buffers" })
