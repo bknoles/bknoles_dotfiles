@@ -70,6 +70,8 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
   end,
 })
 
+vim.keymap.set('t', '<C-]>', '<C-\\><C-n>', { desc = "Exit terminal mode" })
+
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
