@@ -513,6 +513,9 @@ require("lazy").setup({
       -- Diff management
       { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
       { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+      { "<leader>ah", function()
+        if vim.wo.diff then vim.cmd("diffoff") else vim.cmd("diffthis") end
+      end, desc = "Toggle diff highlighting" },
     },
   }
 
