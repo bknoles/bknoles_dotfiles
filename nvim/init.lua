@@ -51,11 +51,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Open terminal at bottom
--- Trying out toggleterm instead
--- vim.keymap.set("n", "<leader>t", ":bo 15split | terminal<CR>", { desc = "Open terminal" })
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
 vim.opt.autoread = true
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
@@ -398,9 +393,56 @@ require("lazy").setup({
       require("toggleterm").setup({
         size = 15,
         direction = "horizontal",
-        open_mapping = "<leader>tt",
         shade_terminals = false,
       })
+
+      local function term_is_visible(term)
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          if vim.api.nvim_win_get_buf(win) == term.bufnr then
+            return win
+          end
+        end
+      end
+
+      -- Toggle: hide if visible, open in insert if hidden/new
+      vim.keymap.set("n", "<leader>tt", function()
+        local id = vim.v.count1
+        local term = require("toggleterm.terminal").get(id)
+
+        if term == nil then
+          require("toggleterm").toggle(id)
+          vim.schedule(function() vim.cmd("startinsert") end)
+          return
+        end
+
+        local win = term_is_visible(term)
+        if win then
+          term:close()
+        else
+          term:open()
+          vim.schedule(function() vim.cmd("startinsert") end)
+        end
+      end, { desc = "Toggle terminal" })
+
+      -- Focus: jump to terminal and enter insert mode (open if hidden/new)
+      vim.keymap.set("n", "<leader>ti", function()
+        local id = vim.v.count1
+        local term = require("toggleterm.terminal").get(id)
+
+        if term == nil then
+          require("toggleterm").toggle(id)
+          vim.schedule(function() vim.cmd("startinsert") end)
+          return
+        end
+
+        local win = term_is_visible(term)
+        if win then
+          vim.api.nvim_set_current_win(win)
+        else
+          term:open()
+        end
+        vim.schedule(function() vim.cmd("startinsert") end)
+      end, { desc = "Focus terminal" })
     end,
   },
   {
@@ -441,6 +483,12 @@ require("lazy").setup({
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
     config = true,
+    opts = {
+      diff_opts = {
+        open_in_new_tab = true,
+        keep_terminal_focus = true,
+      }
+    },
     keys = {
       { "<leader>a", nil, desc = "AI/Claude Code" },
       { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
