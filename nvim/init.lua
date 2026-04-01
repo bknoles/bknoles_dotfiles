@@ -139,7 +139,7 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>fa", function() builtin.find_files({ hidden = true }) end, { desc = "Find including hidden" })
 
       -- Buffers
-      vim.keymap.set("n", ";", builtin.buffers, { desc = "Buffers" })
+      vim.keymap.set("n", ";", function() builtin.buffers({ sort_mru = true }) end, { desc = "Buffers" })
 
       -- Git
       vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
