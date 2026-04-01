@@ -318,6 +318,16 @@ require("lazy").setup({
         },
       })
 
+      vim.lsp.config('ruby_lsp', {
+        init_options = {
+          addonSettings = {
+            ["Ruby LSP Rails"] = {
+              enablePendingMigrationsPrompt = false,
+            },
+          },
+        },
+      })
+
       -- Enable servers
       vim.lsp.enable({
         "ts_ls", "eslint", "ruby_lsp", "gopls",
