@@ -90,6 +90,7 @@ require("lazy").setup({
           "html", "css", "yaml", "dockerfile",
           "lua", "vim", "vimdoc",
           "python", "rust", "go",
+          "markdown", "markdown_inline",
         },
       })
     end,
@@ -106,6 +107,64 @@ require("lazy").setup({
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = true,
+  },
+  {
+    "reedes/vim-colors-pencil",
+    lazy = true,
+  },
+  {
+    "zenbones-theme/zenbones.nvim",
+    dependencies = { "rktjmp/lush.nvim" },
+    lazy = true,
+  },
+  {
+    "folke/twilight.nvim",
+    lazy = true,
+    opts = {
+      dimming = { alpha = 0.3 },
+      context = 12,
+      treesitter = true,
+    },
+  },
+  {
+    "folke/zen-mode.nvim",
+    lazy = true,
+    opts = {
+      window = {
+        width = 80,
+        options = {
+          signcolumn = "no",
+          number = false,
+          cursorline = false,
+        },
+        backdrop = 1,
+      },
+      plugins = {
+        twilight = { enabled = false },
+        gitsigns = { enabled = false },
+      },
+    },
+  },
+  {
+    "HakonHarnes/img-clip.nvim",
+    event = "BufEnter",
+    opts = {},
+    keys = {
+      { "<leader>ip", "<cmd>PasteImage<cr>", desc = "Paste image from clipboard" },
+    },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    ft = { "markdown" },
+    opts = {
+      quote = { repeat_linebreak = true },
+      win_options = {
+        showbreak = { default = "", rendered = "  " },
+        breakindent = { default = false, rendered = true },
+        breakindentopt = { default = "", rendered = "" },
+      },
+    },
   },
   { "norcalli/nvim-colorizer.lua", config = true },
   { "kylechui/nvim-surround", config = true },
@@ -520,3 +579,5 @@ require("lazy").setup({
   }
 
 })
+
+require("draft-mode")
